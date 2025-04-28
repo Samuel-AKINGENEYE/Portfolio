@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .calculator {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 260px;
+      text-align: center;
+    }
+
+    .calculator input {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 20px;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+
+    .button-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .button-container button {
+      padding: 20px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #ddd;
+    }
+
+    .button-container button:active {
+      background-color: #ccc;
+    }
+
+    .button-container button.operator {
+      background-color: #f4a261;
+      color: white;
+    }
+
+    .button-container button.operator:hover {
+      background-color: #e76f51;
+    }
+
+    .button-container button.equal {
+      background-color: #2d9cdb;
+      color: white;
+      grid-column: span 2;
+    }
+
+    .button-container button.equal:hover {
+      background-color: #1e7bb9;
+    }
+
+    .button-container button.clear {
+      background-color: #e63946;
+      color: white;
+      grid-column: span 2;
+    }
+
+    .button-container button.clear:hover {
+      background-color: #d6303b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled placeholder="0">
+    <div class="button-container">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button class="operator" onclick="appendNumber('/')">/</button>
+      <button class="operator" onclick="appendNumber('*')">*</button>
+      <button class="operator" onclick="appendNumber('-')">-</button>
+      
+      <button onclick="appendNumber(7)">7</button>
+      <button onclick="appendNumber(8)">8</button>
+      <button onclick="appendNumber(9)">9</button>
+      <button class="operator" onclick="appendNumber('+')">+</button>
+
+      <button onclick="appendNumber(4)">4</button>
+      <button onclick="appendNumber(5)">5</button>
+      <button onclick="appendNumber(6)">6</button>
+      <button onclick="calculateResult()" class="equal">=</button>
+
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      
+      <button onclick="appendNumber(0)" class="zero">0</button>
+      <button onclick="appendNumber('.')">.</button>
+    </div>
+  </div>
+
+  <script>
+    let currentInput = '';
+
+    // Display the current input in the text box
+    function updateDisplay() {
+      document.getElementById('display').value = currentInput || '0';
+    }
+
+    // Append number or operator to the current input
+    function appendNumber(value) {
+      if (currentInput === '0' && value !== '.') {
+        currentInput = value.toString();
+      } else {
+        currentInput += value.toString();
+      }
+      updateDisplay();
+    }
+
+    // Clear the display
+    function clearDisplay() {
+      currentInput = '';
+      updateDisplay();
+    }
+
+    // Evaluate the expression and show the result
+    function calculateResult() {
+      try {
+        currentInput = eval(currentInput).toString();
+      } catch (error) {
+        currentInput = 'Error';
+      }
+      updateDisplay();
+    }
+  </script>
+
+</body>
+</html>

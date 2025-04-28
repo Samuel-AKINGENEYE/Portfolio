@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Skills - Fresh Talent in IT</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: clamp(30px, 5vh, 50px);
+            animation: fadeIn 2s ease-in-out;
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .skill {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: bold;
+            padding: clamp(15px, 4vw, 25px);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInSkills 2s ease-in-out forwards;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            flex: 1 1 200px;
+            max-width: 300px;
+            min-width: 200px;
+            min-height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .skill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .skill:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .skill:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .skill:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .skill:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .skill:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        /* Enhanced hover animation */
+        .skill:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.1s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSkills {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 900px) {
+            .container {
+                gap: 20px;
+            }
+            
+            .skill {
+                min-width: 190px;
+                padding: clamp(12px, 3vw, 20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            
+            h1 {
+                margin-bottom: 25px;
+            }
+            
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .skill {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .skill, h1 {
+                animation: none;
+                opacity: 1;
+            }
+            
+            .skill {
+                transition: none;
+            }
+            
+            .skill:hover {
+                transform: none;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .skill::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <h1>My Cybersecurity Skills</h1>
+        <div class="container">
+            <div class="skill">Firewall Configuration</div>
+            <div class="skill">Penetration Testing</div>
+            <div class="skill">Network Security</div>
+            <div class="skill">Malware Analysis</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.skill').forEach(skill => {
+            skill.addEventListener('click', () => {
+                alert(`You clicked on ${skill.textContent}!`);
+            });
+            
+            // Add touch support for mobile devices
+            skill.addEventListener('touchstart', function() {
+                this.classList.add('touch-active');
+            }, {passive: true});
+            
+            skill.addEventListener('touchend', function() {
+                this.classList.remove('touch-active');
+                setTimeout(() => {
+                    this.blur();
+                }, 300);
+            }, {passive: true});
+        });
+        
+        // Prevent layout shifts
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.skill').forEach(skill => {
+                skill.style.height = skill.offsetHeight + 'px';
+            });
+        });
+    </script>
+</body>
+</html>

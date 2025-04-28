@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst Skills - Fresh Talent in IT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;  /* Allows items to wrap */
+            width: 100%;
+            max-width: 1000px;
+            height: auto;  /* Adjusted to make height flexible */
+        }
+
+        .skill {
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 20px;
+            margin: 10px;
+            background: linear-gradient(135deg, #f6d365, #fda085);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInSkills 2s ease-in-out forwards;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            width: 200px;  /* Fixed width for each skill */
+        }
+
+        .skill:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .skill:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .skill:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .skill:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        /* Hover animation */
+        .skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInSkills {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem; /* Smaller heading on mobile */
+            }
+
+            .skill {
+                font-size: 1.5rem; /* Smaller skill text on mobile */
+                width: 45%; /* Two skills per row on mobile */
+                margin: 10px;
+            }
+
+            .container {
+                justify-content: center;
+                height: auto; /* Adjust height for smaller screen */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill {
+                font-size: 1.2rem; /* Even smaller text on very small screens */
+                width: 90%; /* One skill per row on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>My Data Analyst Skills</h1>
+        <div class="container">
+            <div class="skill">Data Cleaning</div>
+            <div class="skill">Data Visualization</div>
+            <div class="skill">SQL Queries</div>
+            <div class="skill">Python (Pandas, NumPy)</div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.skill').forEach(skill => {
+            skill.addEventListener('click', () => {
+                alert(`You clicked on ${skill.textContent}!`);
+            });
+        });
+    </script>
+</body>
+</html>

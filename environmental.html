@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Skills</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 30px;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+            padding: 0 15px;
+            margin-bottom: 50px;
+        }
+
+        section {
+            width: 85%;
+            margin: 30px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            border-bottom: 2px solid #74ebd5;
+            padding-bottom: 8px;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 12px 0;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        li::before {
+            content: "🌱";
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 25px 10px;
+            margin-top: 50px;
+            background-color: rgba(0,0,0,0.6);
+            font-size: 0.95rem;
+        }
+
+        .floating-bubbles span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: floatBubble 15s linear infinite;
+            bottom: -150px;
+        }
+
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.4rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            section {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Environmental Skills </h1>
+        <p>As an Environmental Health Practitioner with a BSc (Hons) in Environmental Health Sciences, I've acquired a broad range of skills to address real-world public health challenges.</p>
+    </header>
+
+    <section id="technical">
+        <h2>Technical and Scientific Skills</h2>
+        <ul>
+            <li>Environmental Health Risk Assessment</li>
+            <li>Epidemiology</li>
+            <li>Toxicology</li>
+            <li>Environmental Monitoring</li>
+            <li>Public Health Research</li>
+            <li>Waste Management</li>
+            <li>Environmental Regulations and Legislation</li>
+            <li>Water Quality Management</li>
+            <li>Food Safety and Hygiene</li>
+            <li>Environmental Health Audits</li>
+        </ul>
+    </section>
+
+    <section id="analytical">
+        <h2>Analytical Skills</h2>
+        <ul>
+            <li>Data Analysis and Interpretation</li>
+            <li>GIS (Geographic Information System)</li>
+            <li>Laboratory Techniques</li>
+        </ul>
+    </section>
+
+    <section id="communication">
+        <h2>Communication and Management Skills</h2>
+        <ul>
+            <li>Public Health Education and Outreach</li>
+            <li>Report Writing and Documentation</li>
+            <li>Stakeholder Engagement</li>
+            <li>Crisis Management</li>
+        </ul>
+    </section>
+
+    <section id="problem-solving">
+        <h2>Problem-solving and Practical Skills</h2>
+        <ul>
+            <li>Project Management</li>
+            <li>Sustainability Practices</li>
+            <li>Risk Communication</li>
+        </ul>
+    </section>
+
+    <footer>
+        Designed by Samuel AKINGENEYE | © 2025
+    </footer>
+
+    <div class="floating-bubbles">
+        <span style="left: 10%; animation-duration: 13s;"></span>
+        <span style="left: 25%; animation-duration: 17s;"></span>
+        <span style="left: 45%; animation-duration: 20s;"></span>
+        <span style="left: 65%; animation-duration: 19s;"></span>
+        <span style="left: 80%; animation-duration: 22s;"></span>
+    </div>
+</body>
+</html>

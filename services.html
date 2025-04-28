@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #fff;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 50px 20px;
+            background-color: #1a1a1a; /* Dark background for services */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #3ec799; /* Orange-red */
+            margin-bottom: 40px;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Service Card */
+        .service-card {
+            background-color: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: white; /* Orange-red */
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .service-icon:hover {
+          color:orangered;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg); /* Small rotation effect on hover */
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: #4CAF50; /* Dark green */
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        .service-button {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .service-button:hover {
+            background-color: orangered; 
+        }
+
+        /* Hover Effects */
+        .service-card:hover h3 {
+            color: #3ec799 ; /* Change to orange-red on hover */
+        }
+
+        .service-card:hover p {
+            color: #fff;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .service-card h3 {
+                font-size: 22px;
+            }
+
+            .service-card p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Services I Offer</h2>
+            <div class="services-container">
+
+                <!-- Web Design Service -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i> <!-- Web Design Icon -->
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Creating visually appealing, user-friendly websites that deliver seamless experiences.</p>
+                    <button class="service-button"><a href="contact.html">Contact me</a> </button>
+                </div>
+
+                <!-- Mobile App Development Service -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i> <!-- Mobile App Development Icon -->
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Creating mobile apps that deliver seamless experiences on both iOS and Android.</p>
+                    <button class="service-button"><a href="contact.html">Contact me</a></button>
+                </div>
+
+                <!-- Cybersecurity Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i> <!-- Cybersecurity Services Icon -->
+                    </div>
+                    <h3>Cybersecurity Services</h3>
+                    <p>Protecting your digital assets with robust security strategies and firewalls.</p>
+                    <button class="service-button"><a href="contact.html">Contact me</a></button>
+                </div>
+
+                <!-- Data Analysis & Visualization -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i> <!-- Data Analysis Icon -->
+                    </div>
+                    <h3>Data Analysis & Visualization</h3>
+                    <p>Transforming data into actionable insights through advanced analytics and visualization tools.</p>
+                    <button class="service-button"><a href="contact.html">Contact me</a></button>
+                </div>
+
+                <!-- Consulting & Tech Support -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i> <!-- Consulting & Tech Support Icon -->
+                    </div>
+                    <h3>Consulting & Tech Support</h3>
+                    <p>Providing expert consulting and ongoing tech support for businesses and individuals.</p>
+                    <button class="service-button"><a href="contact.html">Contact me</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

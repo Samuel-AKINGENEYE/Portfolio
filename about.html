@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://img.freepik.com/free-photo/technology-digital-business-concept-ai-graphic-interface_53876-129703.jpg');
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://img.freepik.com/free-photo/technology-digital-business-concept-ai-graphic-interface_53876-129703.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgb(31, 99, 82);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: #333;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .about-text .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skills span {
+            background: #ff5722;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image img {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>About Me</h1>
+        <p>Hi, I’m Samuel AKINGENEYE! A passionate full-stack web developer and environmental health scientist dedicated to building software that makes an impact.</p>
+    </section>
+
+    <section class="about-container">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="My image.jpeg" alt="Fresh Talent">
+            </div>
+            <div class="about-text">
+                <h2>Who Am I?</h2>
+                <p>I am a self-taught full-stack web developer with a strong foundation in cybersecurity and data analysis. Combining my background in environmental health sciences with tech, I create solutions that address real-world challenges.</p>
+                <p>From web applications to cybersecurity solutions, my goal is to build impactful software that bridges the gap between technology and health sciences.</p>
+                <div class="skills">
+                    <span>Full-Stack Development</span>
+                    <span>Cybersecurity</span>
+                    <span>Data Analysis</span>
+                    <span>UI/UX Design</span>
+                    <span>Consulting & Tech Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

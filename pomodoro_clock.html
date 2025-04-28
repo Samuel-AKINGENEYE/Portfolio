@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Clock</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .pomodoro {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    .timer {
+      font-size: 48px;
+      margin: 20px 0;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2d9cdb;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1e7bb9;
+    }
+
+    .btn:active {
+      background-color: #1a5e7f;
+    }
+
+    .btn.stop {
+      background-color: #e63946;
+    }
+
+    .btn.stop:hover {
+      background-color: #d6303b;
+    }
+
+    .btn.stop:active {
+      background-color: #c22e2b;
+    }
+
+    .status {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .break {
+      background-color: #f4a261;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pomodoro">
+    <h1>Pomodoro Clock</h1>
+    <div class="status" id="status">Focus Time</div>
+    <div class="timer" id="timer">25:00</div>
+    <div>
+      <button class="btn" id="startStopBtn">Start</button>
+      <button class="btn stop" id="resetBtn">Stop</button>
+    </div>
+  </div>
+
+  <script>
+    let isRunning = false;
+    let isWorkTime = true;
+    let timerInterval;
+    let timeLeft = 25 * 60; // 25 minutes in seconds
+
+    const status = document.getElementById('status');
+    const timerDisplay = document.getElementById('timer');
+    const startStopBtn = document.getElementById('startStopBtn');
+    const resetBtn = document.getElementById('resetBtn');
+
+    // Function to format time in MM:SS format
+    function formatTime(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    }
+
+    // Start/Stop Button click handler
+    startStopBtn.addEventListener('click', () => {
+      if (isRunning) {
+        clearInterval(timerInterval);
+        startStopBtn.textContent = 'Start';
+      } else {
+        timerInterval = setInterval(updateTimer, 1000);
+        startStopBtn.textContent = 'Pause';
+      }
+      isRunning = !isRunning;
+    });
+
+    // Reset Button click handler
+    resetBtn.addEventListener('click', resetTimer);
+
+    // Update the timer each second
+    function updateTimer() {
+      timeLeft--;
+      timerDisplay.textContent = formatTime(timeLeft);
+
+      if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        if (isWorkTime) {
+          isWorkTime = false;
+          status.textContent = 'Take a Break';
+          timeLeft = 5 * 60; // 5 minutes for break
+          timerDisplay.textContent = formatTime(timeLeft);
+          status.style.backgroundColor = '#f4a261';
+        } else {
+          isWorkTime = true;
+          status.textContent = 'Focus Time';
+          timeLeft = 25 * 60; // 25 minutes for work
+          timerDisplay.textContent = formatTime(timeLeft);
+          status.style.backgroundColor = '';
+        }
+        startStopBtn.textContent = 'Start';
+        isRunning = false;
+      }
+    }
+
+    // Reset timer
+    function resetTimer() {
+      clearInterval(timerInterval);
+      isRunning = false;
+      timeLeft = 25 * 60; // Reset to 25 minutes for work
+      timerDisplay.textContent = formatTime(timeLeft);
+      status.textContent = 'Focus Time';
+      status.style.backgroundColor = '';
+      startStopBtn.textContent = 'Start';
+    }
+  </script>
+
+</body>
+</html>

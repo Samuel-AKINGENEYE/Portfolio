@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Skills</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle, #74ebd5, #ACB6E5);
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 30px;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+
+        ul {
+            width: 80%;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-in-out;
+        }
+
+        ul.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        li {
+            margin: 15px 0;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: #74ebd5;
+            color: #fff;
+        }
+
+        li::before {
+            content: '✨';
+            font-size: 1.2rem;
+            transition: transform 0.4s;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 25px 10px;
+            margin-top: 40px;
+            background-color: rgba(0,0,0,0.6);
+            font-size: 0.95rem;
+        }
+
+        .floating-bubbles span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: floatBubble 15s linear infinite;
+            bottom: -150px;
+        }
+
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.3rem;
+            }
+
+            ul {
+                width: 90%;
+                padding: 20px;
+            }
+
+            li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Here are my other skills </h1>
+    </header>
+
+    <ul id="skill-list">
+        <li>Languages like: English and French</li>
+        <li>Health Informatics</li>
+        <li>Microsoft Office Suite</li>
+        <li>Team Collaboration</li>
+        <li>Effective Communication</li>
+        <li>Problem Solving</li>
+        <li>Photos and Videos Editing</li>
+        <li>Mobile App Development</li>
+        <li>Singing</li>
+    </ul>
+
+    <footer>
+        Samuel AKINGENEYE | © 2025  
+    </footer>
+
+    <div class="floating-bubbles">
+        <span style="left: 10%; animation-duration: 12s;"></span>
+        <span style="left: 30%; animation-duration: 15s;"></span>
+        <span style="left: 50%; animation-duration: 18s;"></span>
+        <span style="left: 70%; animation-duration: 20s;"></span>
+        <span style="left: 90%; animation-duration: 17s;"></span>
+        <span style="left: 80%; animation-duration: 22s;"></span>
+    </div>
+
+    <script>
+        // Animate skill list appearance
+        window.addEventListener('scroll', () => {
+            const list = document.getElementById('skill-list');
+            const rect = list.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                list.classList.add('visible');
+            }
+        });
+
+        // Trigger animation if already in view on load
+        window.addEventListener('load', () => {
+            const list = document.getElementById('skill-list');
+            const rect = list.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                list.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>

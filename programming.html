@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Skills</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0c2c19, #302f0f); 
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            color: #e0e0e0;
+        }
+
+        section {
+            width: 85%;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            border-bottom: 2px solid #ffb347;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            color: #ffecb3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #fff;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        li::before {
+            content: "💻";
+            display: block;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 10px;
+            margin-top: 60px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        /* Floating particles */
+        .particles span {
+            position: absolute;
+            display: block;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            animation: floatParticle 18s linear infinite;
+            bottom: -150px;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1200px) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @media(max-width: 768px) {
+            header h1 {
+                font-size: 2.4rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Programming Skills </h1>
+        <p>As a passionate full-stack developer, I specialize in building innovative and scalable web & mobile applications.</p>
+    </header>
+
+    <section id="languages">
+        <h2>Programming Languages</h2>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>PHP</li>
+            <li>Python</li>
+            <li>Ruby</li>
+            <li>Java</li>
+            <li>C#</li>
+            <li>C++</li>
+            <li>Go</li>
+            <li>SQL</li>
+            <li>Shell Scripting</li>
+            <li>C</li>
+            <li>Swift</li>
+            <li>MATLAB</li>
+            <li>Scala</li>
+            <li>SAS</li>
+            <li>Assembly Language</li>
+        </ul>
+    </section>
+
+    <footer>
+        Samuel AKINGENEYE | © 2025
+    </footer>
+
+    <div class="particles">
+        <span style="left: 5%; width: 12px; height: 12px; animation-duration: 15s;"></span>
+        <span style="left: 20%; width: 18px; height: 18px; animation-duration: 20s;"></span>
+        <span style="left: 40%; width: 14px; height: 14px; animation-duration: 17s;"></span>
+        <span style="left: 60%; width: 20px; height: 20px; animation-duration: 22s;"></span>
+        <span style="left: 75%; width: 16px; height: 16px; animation-duration: 19s;"></span>
+        <span style="left: 90%; width: 12px; height: 12px; animation-duration: 14s;"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Board</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .header {
+      background-color: #333;
+      color: white;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .form-container {
+      margin-top: 30px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+    }
+    .form-container input, .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #218838;
+    }
+    .job-list-container {
+      margin-top: 30px;
+      width: 80%;
+      max-width: 1000px;
+    }
+    .job-card {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .job-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .job-card p {
+      margin: 5px 0;
+    }
+    .filter-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .filter-container input {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>Job Board</h1>
+  </div>
+
+  <!-- Job Creation Form -->
+  <div class="form-container">
+    <h2>Post a Job</h2>
+    <input type="text" id="job-title" placeholder="Job Title" />
+    <textarea id="job-description" placeholder="Job Description"></textarea>
+    <input type="text" id="job-company" placeholder="Company Name" />
+    <input type="text" id="job-location" placeholder="Job Location" />
+    <button onclick="addJob()">Post Job</button>
+  </div>
+
+  <!-- Job Filter -->
+  <div class="filter-container">
+    <h3>Filter Jobs by Title</h3>
+    <input type="text" id="filter-input" placeholder="Search for a job..." oninput="filterJobs()" />
+  </div>
+
+  <!-- Job Listings -->
+  <div class="job-list-container" id="job-list">
+    <!-- Job cards will be added here -->
+  </div>
+
+  <script>
+    // Array to hold the job listings
+    let jobs = [];
+
+    // Function to add a job to the list
+    function addJob() {
+      const title = document.getElementById('job-title').value;
+      const description = document.getElementById('job-description').value;
+      const company = document.getElementById('job-company').value;
+      const location = document.getElementById('job-location').value;
+
+      // Check if all fields are filled
+      if (!title || !description || !company || !location) {
+        alert('Please fill all fields');
+        return;
+      }
+
+      // Create a new job object
+      const newJob = {
+        title,
+        description,
+        company,
+        location
+      };
+
+      // Add the job to the jobs array
+      jobs.push(newJob);
+
+      // Clear form fields
+      document.getElementById('job-title').value = '';
+      document.getElementById('job-description').value = '';
+      document.getElementById('job-company').value = '';
+      document.getElementById('job-location').value = '';
+
+      // Re-render the job list
+      renderJobList();
+    }
+
+    // Function to render the job list
+    function renderJobList() {
+      const jobListContainer = document.getElementById('job-list');
+      jobListContainer.innerHTML = '';
+
+      jobs.forEach(job => {
+        const jobCard = document.createElement('div');
+        jobCard.classList.add('job-card');
+        jobCard.innerHTML = `
+          <h3>${job.title}</h3>
+          <p><strong>Company:</strong> ${job.company}</p>
+          <p><strong>Location:</strong> ${job.location}</p>
+          <p><strong>Description:</strong> ${job.description}</p>
+        `;
+        jobListContainer.appendChild(jobCard);
+      });
+    }
+
+    // Function to filter jobs based on title
+    function filterJobs() {
+      const filterValue = document.getElementById('filter-input').value.toLowerCase();
+      const filteredJobs = jobs.filter(job => job.title.toLowerCase().includes(filterValue));
+      renderFilteredJobs(filteredJobs);
+    }
+
+    // Function to render filtered jobs
+    function renderFilteredJobs(filteredJobs) {
+      const jobListContainer = document.getElementById('job-list');
+      jobListContainer.innerHTML = '';
+
+      filteredJobs.forEach(job => {
+        const jobCard = document.createElement('div');
+        jobCard.classList.add('job-card');
+        jobCard.innerHTML = `
+          <h3>${job.title}</h3>
+          <p><strong>Company:</strong> ${job.company}</p>
+          <p><strong>Location:</strong> ${job.location}</p>
+          <p><strong>Description:</strong> ${job.description}</p>
+        `;
+        jobListContainer.appendChild(jobCard);
+      });
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Testing App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        select {
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background-color: #0072ff;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #005fcc;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .result h2 {
+            margin-bottom: 10px;
+        }
+        .result p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Water Testing App</h1>
+    <input type="number" id="phValue" placeholder="Enter pH level (0-14)">
+    <input type="number" id="turbidityValue" placeholder="Turbidity (NTU)">
+    <input type="number" id="chlorineValue" placeholder="Chlorine Level (mg/L)">
+    <input type="number" id="tssValue" placeholder="TSS (mg/L)">
+    <input type="number" id="tdsValue" placeholder="TDS (mg/L)">
+    <input type="number" id="doValue" placeholder="Dissolved Oxygen (mg/L)">
+    <select id="eColiTest">
+        <option value="">E.coli presence?</option>
+        <option value="absent">Absent</option>
+        <option value="present">Present</option>
+    </select>
+    <select id="parasiteTest">
+        <option value="">Parasites detected?</option>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>
+    <select id="waterSource">
+        <option value="">Select Water Source</option>
+        <option value="tap">Tap Water</option>
+        <option value="well">Well Water</option>
+        <option value="river">River Water</option>
+        <option value="bottled">Bottled Water</option>
+    </select>
+    <button onclick="testWaterQuality()">Test Water</button>
+
+    <div class="result" id="waterResult"></div>
+</div>
+
+<script>
+    function testWaterQuality() {
+        const ph = parseFloat(document.getElementById('phValue').value);
+        const turbidity = parseFloat(document.getElementById('turbidityValue').value);
+        const chlorine = parseFloat(document.getElementById('chlorineValue').value);
+        const tss = parseFloat(document.getElementById('tssValue').value);
+        const tds = parseFloat(document.getElementById('tdsValue').value);
+        const doValue = parseFloat(document.getElementById('doValue').value);
+        const eColi = document.getElementById('eColiTest').value;
+        const parasites = document.getElementById('parasiteTest').value;
+        const source = document.getElementById('waterSource').value;
+
+        if (isNaN(ph) || isNaN(turbidity) || isNaN(chlorine) || isNaN(tss) || isNaN(tds) || isNaN(doValue) || !eColi || !parasites || !source) {
+            alert('Please fill out all fields correctly.');
+            return;
+        }
+
+        let phStatus = ph >= 6.5 && ph <= 8.5 ? "Good" : "Poor";
+        let turbidityStatus = turbidity <= 5 ? "Clear" : "Cloudy";
+        let chlorineStatus = chlorine <= 4 ? "Safe" : "Too High";
+        let tssStatus = tss <= 30 ? "Normal" : "High";
+        let tdsStatus = tds <= 500 ? "Safe" : "High";
+        let doStatus = doValue >= 5 ? "Healthy" : "Low Oxygen, Unhealthy";
+        let eColiStatus = eColi === "absent" ? "Safe" : "Contaminated";
+        let parasiteStatus = parasites === "no" ? "Safe" : "Contaminated";
+
+        const resultHTML = `
+            <h2>Test Results</h2>
+            <p><strong>Water Source:</strong> ${source.charAt(0).toUpperCase() + source.slice(1)} Water</p>
+            <p><strong>pH Level:</strong> ${ph} (${phStatus})</p>
+            <p><strong>Turbidity:</strong> ${turbidity} NTU (${turbidityStatus})</p>
+            <p><strong>Chlorine Level:</strong> ${chlorine} mg/L (${chlorineStatus})</p>
+            <p><strong>Total Suspended Solids (TSS):</strong> ${tss} mg/L (${tssStatus})</p>
+            <p><strong>Total Dissolved Solids (TDS):</strong> ${tds} mg/L (${tdsStatus})</p>
+            <p><strong>Dissolved Oxygen (DO):</strong> ${doValue} mg/L (${doStatus})</p>
+            <p><strong>E.coli Test:</strong> ${eColiStatus}</p>
+            <p><strong>Parasites:</strong> ${parasiteStatus}</p>
+        `;
+
+        document.getElementById('waterResult').innerHTML = resultHTML;
+    }
+</script>
+</body>
+</html>

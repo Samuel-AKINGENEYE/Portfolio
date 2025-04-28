@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 10px;
+            background-color: #f0f4f8;
+            margin: 5px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .options li:hover {
+            background-color: #e0e5eb;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #8BC34A;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #7CB342;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .correct {
+            background-color: #8BC34A !important;
+            color: white;
+        }
+
+        .incorrect {
+            background-color: #f44336 !important;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Quiz App</h1>
+        <div id="quiz-container">
+            <div class="question" id="question"></div>
+            <ul class="options" id="options"></ul>
+            <button class="btn" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["Berlin", "Madrid", "Paris", "Rome"],
+                correct: "Paris"
+            },
+            {
+                question: "Which planet is known as the Red Planet?",
+                options: ["Earth", "Mars", "Jupiter", "Venus"],
+                correct: "Mars"
+            },
+            {
+                question: "What is 2 + 2?",
+                options: ["3", "4", "5", "6"],
+                correct: "4"
+            },
+            {
+                question: "Who wrote 'Romeo and Juliet'?",
+                options: ["Shakespeare", "Dickens", "Austen", "Hemingway"],
+                correct: "Shakespeare"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const questionText = document.getElementById('question');
+            const optionsList = document.getElementById('options');
+            
+            questionText.textContent = question.question;
+            optionsList.innerHTML = '';
+            answered = false;
+
+            question.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.onclick = () => checkAnswer(option, li);
+                optionsList.appendChild(li);
+            });
+        }
+
+        function checkAnswer(selectedOption, li) {
+            if (answered) return; // Prevent multiple answers
+
+            const correctAnswer = questions[currentQuestionIndex].correct;
+            if (selectedOption === correctAnswer) {
+                li.classList.add('correct');
+                score++;
+            } else {
+                li.classList.add('incorrect');
+            }
+
+            answered = true; // Disable further selections for this question
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const quizContainer = document.getElementById('quiz-container');
+            const result = document.getElementById('result');
+            
+            quizContainer.style.display = 'none';
+            result.style.display = 'block';
+            result.textContent = `You scored ${score} out of ${questions.length}`;
+        }
+
+        // Initialize the quiz
+        displayQuestion();
+    </script>
+    
+</body>
+</html>

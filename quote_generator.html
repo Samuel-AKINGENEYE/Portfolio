@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quote-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+      max-width: 80%;
+    }
+
+    .quote {
+      font-size: 24px;
+      font-style: italic;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .author {
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #2d9cdb;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1e7bb9;
+    }
+
+    .btn:active {
+      background-color: #1a5e7f;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="quote-container">
+    <div class="quote" id="quote">"The best way to predict the future is to create it."</div>
+    <div class="author" id="author">- Peter Drucker</div>
+    <button class="btn" onclick="generateQuote()">Generate Quote</button>
+  </div>
+
+  <script>
+    // Array of quotes
+    const quotes = [
+      {
+        quote: "The best way to predict the future is to create it.",
+        author: "Peter Drucker"
+      },
+      {
+        quote: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+        author: "Winston Churchill"
+      },
+      {
+        quote: "It does not matter how slowly you go as long as you do not stop.",
+        author: "Confucius"
+      },
+      {
+        quote: "You miss 100% of the shots you don’t take.",
+        author: "Wayne Gretzky"
+      },
+      {
+        quote: "In the middle of every difficulty lies opportunity.",
+        author: "Albert Einstein"
+      },
+      {
+        quote: "The only way to do great work is to love what you do.",
+        author: "Steve Jobs"
+      },
+      {
+        quote: "Believe you can and you're halfway there.",
+        author: "Theodore Roosevelt"
+      },
+      {
+        quote: "The only limit to our realization of tomorrow is our doubts of today.",
+        author: "Franklin D. Roosevelt"
+      }
+    ];
+
+    // Function to generate a random quote
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
+      
+      // Update the quote and author on the page
+      document.getElementById('quote').textContent = `"${randomQuote.quote}"`;
+      document.getElementById('author').textContent = `- ${randomQuote.author}`;
+    }
+  </script>
+
+</body>
+</html>

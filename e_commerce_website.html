@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .header {
+      background-color: #333;
+      color: white;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+    }
+    .products-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+      width: 80%;
+    }
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      width: 200px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .product-card h3 {
+      margin: 10px 0;
+    }
+    .product-card .price {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .product-card button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .product-card button:hover {
+      background-color: #218838;
+    }
+    .cart-container {
+      margin-top: 30px;
+      width: 80%;
+      text-align: center;
+    }
+    .cart {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cart ul {
+      list-style: none;
+      padding: 0;
+    }
+    .cart ul li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .cart button {
+      padding: 10px 15px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cart button:hover {
+      background-color: #c82333;
+    }
+    .total {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="header">
+    <h1>My E-commerce Store</h1>
+  </div>
+
+  <!-- Products Section -->
+  <div class="products-container" id="products">
+    <!-- Product Cards will be inserted here dynamically -->
+  </div>
+
+  <!-- Cart Section -->
+  <div class="cart-container" id="cart-container">
+    <h2>Your Cart</h2>
+    <div class="cart" id="cart">
+      <ul id="cart-items">
+        <!-- Cart items will be inserted here dynamically -->
+      </ul>
+      <div class="total" id="total-price">
+        Total: $0.00
+      </div>
+      <button id="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    // Sample product data
+    const products = [
+      { id: 1, name: 'Shoes', price: 29.99, },
+      { id: 2, name: 'Clothes', price: 49.99, },
+      { id: 3, name: 'Office', price: 19.99, },
+      { id: 4, name: 'Foods', price: 39.99, },
+    ];
+
+    // Shopping Cart Data
+    let cart = [];
+
+    // Function to render the products
+    function renderProducts() {
+      const productsContainer = document.getElementById('products');
+      productsContainer.innerHTML = '';
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+          <img src="${product.img}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <div class="price">$${product.price.toFixed(2)}</div>
+          <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        productsContainer.appendChild(productCard);
+      });
+    }
+
+    // Function to add a product to the cart
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (product) {
+        cart.push(product);
+        renderCart();
+      }
+    }
+
+    // Function to render the cart
+    function renderCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('total-price');
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        const cartItem = document.createElement('li');
+        cartItem.innerHTML = `
+          ${item.name} - $${item.price.toFixed(2)}
+          <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+        cartItems.appendChild(cartItem);
+        total += item.price;
+      });
+
+      totalPrice.innerHTML = `Total: $${total.toFixed(2)}`;
+    }
+
+    // Function to remove a product from the cart
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    // Function to handle checkout
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      alert('Checkout successful!');
+      cart = [];
+      renderCart();
+    }
+
+    // Initialize the website
+    renderProducts();
+    renderCart();
+  </script>
+
+</body>
+</html>

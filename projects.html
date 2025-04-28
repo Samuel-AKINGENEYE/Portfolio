@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #155837;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin: 30px 0;
+            color: #fff;
+            padding: 0 15px;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(2, 2, 2, 1);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 280px;
+            max-width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            color: white;
+            height: 220px;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #8effb5;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #ddd;
+            flex-grow: 1;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #fff;
+            background-color: green;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .project-card a:hover {
+            background-color: #7cff5d;
+            color: #333;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1200px) {
+            .projects {
+                padding: 15px;
+            }
+            
+            .project-card {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .projects {
+                gap: 15px;
+            }
+            
+            .project-card {
+                width: 45%;
+                min-width: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects {
+                padding: 10px;
+            }
+            
+            .project-card {
+                width: 100%;
+                max-width: 450px;
+                height: auto;
+                min-height: 200px;
+                margin-bottom: 15px;
+            }
+            
+            .project-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                margin: 20px 0;
+            }
+            
+            .project-card {
+                padding: 15px;
+                min-height: 180px;
+            }
+            
+            .project-card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .project-card p {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+            }
+            
+            .project-card a {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(var(--order) * 0.1s);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .project-card {
+                animation: none;
+                opacity: 1;
+            }
+        }
+
+        /* Icon Styles */
+        .project-card i {
+            font-size: 40px;
+            color: #8effb5;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Projects:</h2>
+    
+    <section class="projects" id="portfolio">
+        <div class="project-card" style="--order:1">
+            <i class="fas fa-cloud-sun"></i> <!-- Weather icon -->
+            <h3>Weather App</h3>
+            <a href="weather_app.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:2">
+            <i class="fas fa-tint"></i> <!-- Water drop icon -->
+            <h3>Water Testing App</h3>
+            <a href="water_testing_app.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:3">
+            <i class="fas fa-laptop-code"></i> <!-- Code icon -->
+            <h3>Dynamic Websites</h3>
+            <a href="#">View Project</a>
+        </div>
+        <div class="project-card" style="--order:4">
+            <i class="fas fa-user-tie"></i> <!-- Portfolio icon -->
+            <h3>Personal Portfolio Webpage</h3>
+            <a href="index.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:5">
+            <i class="fas fa-book-open"></i> <!-- Documentation icon -->
+            <h3>Technical Documentation Page</h3>
+            <a href="technical_documentation_page.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:6">
+            <i class="fas fa-edit"></i> <!-- Form icon -->
+            <h3>Survey Form</h3>
+            <a href="survey_form.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:7">
+            <i class="fas fa-question-circle"></i> <!-- Quiz icon -->
+            <h3>Quiz App</h3>
+            <a href="quiz.app.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:8">
+            <i class="fas fa-tasks"></i> <!-- Task list icon -->
+            <h3>To Do List</h3>
+            <a href="to_do_list.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:9">
+            <i class="fas fa-box"></i> <!-- Box icon -->
+            <h3>Product Landing Page</h3>
+            <a href="product_landing_page.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:10">
+            <i class="fas fa-calculator"></i> <!-- Calculator icon -->
+            <h3>Javascript Calculator</h3>
+            <a href="javascript_calculator.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:11">
+            <i class="fas fa-clock"></i> <!-- Clock icon -->
+            <h3>Pomodoro Clock</h3>
+            <a href="pomodoro_clock.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:12">
+            <i class="fas fa-quote-left"></i> <!-- Quote icon -->
+            <h3>Quote Generator</h3>
+            <a href="quote_generator.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:13">
+            <i class="fas fa-store"></i> <!-- Store icon -->
+            <h3>E-commerce Website</h3>
+            <a href="e_commerce_website.html">View Project</a>
+        </div>
+        <div class="project-card" style="--order:14">
+            <i class="fas fa-briefcase"></i> <!-- Job Board icon -->
+            <h3>Job Board Application</h3>
+            <a href="job_board_application.html">View Project</a>
+        </div>
+    </section>
+
+    <script>
+        // Add visibility class when cards enter viewport
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        function checkVisibility() {
+            const windowHeight = window.innerHeight;
+            projectCards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < windowHeight - 50) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        // Debounce function to improve scroll performance
+        function debounce(func, wait) {
+            let timeout;
+            return function() {
+                clearTimeout(timeout);
+                timeout = setTimeout(func, wait);
+            };
+        }
+
+        const debouncedCheckVisibility = debounce(checkVisibility, 20);
+        
+        window.addEventListener('scroll', debouncedCheckVisibility);
+        window.addEventListener('resize', debouncedCheckVisibility);
+        
+        // Initial check to animate cards on load
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            checkVisibility();
+        });
+    </script>
+</body>
+</html>
