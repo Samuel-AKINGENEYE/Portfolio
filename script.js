@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const typedTextSpan = document.querySelector(".typed-text");
 
   const textArray = [
-    "Hi there, I'm Samuel AKINGENEYE",
+    "Hi, I'm Samuel AKINGENEYE",
     "Full stack web developer,",
     "UI & UX designer,",
     "Cybersecurity enthusiast,",
