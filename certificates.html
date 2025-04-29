@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0e2342;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* Certificates Grid */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .certificate-card {
+            background: rgb(22, 37, 3);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-title {
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            color: white;
+            font-weight: bold;
+        }
+
+        .certificate-issuer {
+            margin-bottom: 15px;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .certificate-issuer i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: auto;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: #356112;
+        }
+
+        /* Provider Colors */
+        .freecodecamp { color: #0a0a23; }
+        .cisco { color: #1ba0d7; }
+        .who { color: #0093d5; }
+        .hubspot { color: #ff7a59; }
+        .alx { color: #5f2eea; }
+        .w3school { color: #04aa6d; }
+        .udemy { color: #a435f0; }
+        .other { color: #7f8c8d; }
+
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #ecf0f1;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: #3498db;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 15px 0;
+            }
+            
+            .certificate-content {
+                padding: 15px;
+            }
+            
+            .filter-controls {
+                gap: 8px;
+            }
+            
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Certificates</h1>
+            <div class="subtitle">Professional achievements and completed courses</div>
+        </header>
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="freecodecamp">freeCodeCamp</button>
+            <button class="filter-btn" data-filter="cisco">Cisco</button>
+            <button class="filter-btn" data-filter="who">WHO</button>
+            <button class="filter-btn" data-filter="hubspot">HubSpot</button>
+            <button class="filter-btn" data-filter="alx">ALX</button>
+            <button class="filter-btn" data-filter="w3school">W3Schools</button>
+            <button class="filter-btn" data-filter="udemy">Udemy</button>
+            <button class="filter-btn" data-filter="other">Others</button>
+        </div>
+
+        <div class="certificates-grid">
+            <!-- freeCodeCamp Certificates -->
+            <div class="certificate-card" data-category="freecodecamp">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Responsive Web Design</h3>
+                    <div class="certificate-issuer">
+                        <i class="fab fa-free-code-camp freecodecamp"></i> freeCodeCamp
+                    </div>
+                    <a href="Responsive Web Design.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/0a0a23/ffffff?text=freeCodeCamp" data-title="freeCodeCamp - Responsive Web Design">View Certificate</a>
+                </div>
+            </div>
+
+            <div class="certificate-card" data-category="freecodecamp">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">JavaScript Algorithms</h3>
+                    <div class="certificate-issuer">
+                        <i class="fab fa-free-code-camp freecodecamp"></i> freeCodeCamp
+                    </div>
+                    <a href="Javascript Algorithm and Data Structures.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/0a0a23/ffffff?text=freeCodeCamp" data-title="freeCodeCamp - JavaScript Algorithms">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Cisco Certificates -->
+            <div class="certificate-card" data-category="cisco">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">CCNA: Introduction to Cybersecurity</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-network-wired cisco"></i> Cisco Academy
+                    </div>
+                    <a href="Introduction to cybersecurity.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/1ba0d7/ffffff?text=Cisco" data-title="Cisco - CCNA: Introduction to Networks">View Certificate</a>
+                </div>
+            </div>
+
+            <div class="certificate-card" data-category="cisco">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Introduction to IoT and Digital transformation</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-network-wired cisco"></i> Cisco Academy
+                    </div>
+                    <a href="IoT and digital transformation.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/1ba0d7/ffffff?text=Cisco" data-title="Cisco - CCNA: Introduction to Networks">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- WHO Certificates -->
+            <div class="certificate-card" data-category="who">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Outbreak Investigation in Health facilities</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-hospital who"></i> World Health Organization
+                    </div>
+                    <a href="W.H.O Certificate.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/0093d5/ffffff?text=WHO" data-title="WHO - Public Health Emergency">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- HubSpot Certificates -->
+            <div class="certificate-card" data-category="hubspot">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Email Marketing </h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-mail-bulk hubspot"></i> HubSpot Academy
+                    </div>
+                    <a href="Email marketing.png" class="view-btn" data-img="https://via.placeholder.com/800x600/ff7a59/ffffff?text=HubSpot" data-title="HubSpot - Email Marketing Certification">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- ALX Certificates -->
+            <div class="certificate-card" data-category="alx">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Software Engineering</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-laptop-code alx"></i> ALX Africa
+                    </div>
+                    <a href="#" class="view-btn" data-img="https://via.placeholder.com/800x600/5f2eea/ffffff?text=ALX" data-title="ALX - Software Engineering">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- W3Schools Certificates -->
+            <div class="certificate-card" data-category="w3school">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">JavaScript Certification</h3>
+                    <div class="certificate-issuer">
+                        <i class="fab fa-js-square w3school"></i> W3Schools
+                    </div>
+                    <a href="#" class="view-btn" data-img="https://via.placeholder.com/800x600/04aa6d/ffffff?text=W3Schools" data-title="W3Schools - JavaScript Certification">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Udemy Certificates -->
+            <div class="certificate-card" data-category="udemy">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">React - The Complete Guide</h3>
+                    <div class="certificate-issuer">
+                        <i class="fab fa-udemy udemy"></i> Udemy
+                    </div>
+                    <a href="#" class="view-btn" data-img="https://via.placeholder.com/800x600/a435f0/ffffff?text=Udemy" data-title="Udemy - React: The Complete Guide">View Certificate</a>
+                </div>
+            </div>
+
+            <!-- Other Certificates -->
+            <div class="certificate-card" data-category="other">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Computer foundamentals</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-check-circle other"></i> Online Assessments
+                    </div>
+                    <a href="Computer foundamentals.pdf" class="view-btn" data-img="https://via.placeholder.com/800x600/7f8c8d/ffffff?text=Other" data-title="Environmental Health Sciences">View Certificate</a>
+                </div>
+            </div>
+
+            <div class="certificate-card" data-category="other">
+                <div class="certificate-content">
+                    <h3 class="certificate-title">Environmental Health Sciences</h3>
+                    <div class="certificate-issuer">
+                        <i class="fas fa-leaf other"></i> Environmental Institute
+                    </div>
+                    <a href="#" class="view-btn" data-img="https://via.placeholder.com/800x600/7f8c8d/ffffff?text=Other" data-title="Environmental Health Sciences">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="certificateModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('certificateModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const closeBtn = document.querySelector('.modal-close');
+        const viewButtons = document.querySelectorAll('.view-btn');
+
+        // Open modal when view button is clicked
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.style.display = 'flex';
+                modalImg.src = this.getAttribute('data-img');
+                modalTitle.textContent = this.getAttribute('data-title');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const certificateCards = document.querySelectorAll('.certificate-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                certificateCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        if (category === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

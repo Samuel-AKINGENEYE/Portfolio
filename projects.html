@@ -53,7 +53,7 @@
             justify-content: space-between;
             opacity: 0;
             color: white;
-            height: 220px;
+            min-height: 260px;
         }
 
         .project-card.visible {
@@ -76,9 +76,26 @@
             font-size: 0.95rem;
             margin-bottom: 15px;
             color: #ddd;
-            flex-grow: 1;
             overflow-wrap: break-word;
             line-height: 1.4;
+        }
+
+        .skills-container {
+            margin: 12px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #155837;
+            color: #8effb5;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            white-space: nowrap;
         }
 
         .project-card a {
@@ -88,9 +105,9 @@
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
-            display: inline-block;
             font-weight: bold;
-            margin-top: auto;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         .project-card a:hover {
@@ -128,8 +145,7 @@
             .project-card {
                 width: 100%;
                 max-width: 450px;
-                height: auto;
-                min-height: 200px;
+                min-height: auto;
                 margin-bottom: 15px;
             }
             
@@ -145,7 +161,7 @@
             
             .project-card {
                 padding: 15px;
-                min-height: 180px;
+                min-height: auto;
             }
             
             .project-card h3 {
@@ -160,6 +176,11 @@
             .project-card a {
                 padding: 8px 16px;
                 font-size: 0.9rem;
+            }
+
+            .skill-tag {
+                font-size: 0.7rem;
+                padding: 3px 8px;
             }
         }
 
@@ -196,77 +217,157 @@
     </style>
 </head>
 <body>
-    <h2>Projects:</h2>
+    <h2>Projects</h2>
     
     <section class="projects" id="portfolio">
         <div class="project-card" style="--order:1">
-            <i class="fas fa-cloud-sun"></i> <!-- Weather icon -->
+            <i class="fas fa-cloud-sun"></i>
             <h3>Weather App</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">API Integration</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">HTML</span>
+            </div>
             <a href="weather_app.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:2">
-            <i class="fas fa-tint"></i> <!-- Water drop icon -->
+            <i class="fas fa-tint"></i>
             <h3>Water Testing App</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">UI/UX</span>
+            </div>
             <a href="water_testing_app.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:3">
-            <i class="fas fa-laptop-code"></i> <!-- Code icon -->
+            <i class="fas fa-laptop-code"></i>
             <h3>Dynamic Websites</h3>
-            <a href=" https://samuel-akingeneye.github.io/Environmental-health-sciences/">View Project</a>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Responsive</span>
+            </div>
+            <a href="https://samuel-akingeneye.github.io/Environmental-health-sciences/">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:4">
-            <i class="fas fa-user-tie"></i> <!-- Portfolio icon -->
-            <h3>Personal Portfolio Webpage</h3>
+            <i class="fas fa-user-tie"></i>
+            <h3>Personal Portfolio</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+            </div>
             <a href="index.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:5">
-            <i class="fas fa-book-open"></i> <!-- Documentation icon -->
-            <h3>Technical Documentation Page</h3>
+            <i class="fas fa-book-open"></i>
+            <h3>Technical Documentation</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Technical Writing</span>
+            </div>
             <a href="technical_documentation_page.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:6">
-            <i class="fas fa-edit"></i> <!-- Form icon -->
+            <i class="fas fa-edit"></i>
             <h3>Survey Form</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Forms</span>
+            </div>
             <a href="survey_form.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:7">
-            <i class="fas fa-question-circle"></i> <!-- Quiz icon -->
+            <i class="fas fa-question-circle"></i>
             <h3>Quiz App</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">DOM Manipulation</span>
+            </div>
             <a href="quiz.app.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:8">
-            <i class="fas fa-tasks"></i> <!-- Task list icon -->
+            <i class="fas fa-tasks"></i>
             <h3>To Do List</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">CRUD Operations</span>
+            </div>
             <a href="to_do_list.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:9">
-            <i class="fas fa-box"></i> <!-- Box icon -->
+            <i class="fas fa-box"></i>
             <h3>Product Landing Page</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Responsive</span>
+            </div>
             <a href="product_landing_page.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:10">
-            <i class="fas fa-calculator"></i> <!-- Calculator icon -->
-            <h3>Javascript Calculator</h3>
+            <i class="fas fa-calculator"></i>
+            <h3>JavaScript Calculator</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Algorithms</span>
+            </div>
             <a href="javascript_calculator.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:11">
-            <i class="fas fa-clock"></i> <!-- Clock icon -->
+            <i class="fas fa-clock"></i>
             <h3>Pomodoro Clock</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Timers</span>
+            </div>
             <a href="pomodoro_clock.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:12">
-            <i class="fas fa-quote-left"></i> <!-- Quote icon -->
+            <i class="fas fa-quote-left"></i>
             <h3>Quote Generator</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">API Integration</span>
+            </div>
             <a href="quote_generator.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:13">
-            <i class="fas fa-store"></i> <!-- Store icon -->
+            <i class="fas fa-store"></i>
             <h3>E-commerce Website</h3>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
+            </div>
             <a href="e_commerce_website.html">View Project</a>
         </div>
+        
         <div class="project-card" style="--order:14">
-            <i class="fas fa-briefcase"></i> <!-- Job Board icon -->
+            <i class="fas fa-briefcase"></i>
             <h3>Job Board Application</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">CRUD</span>
+                <span class="skill-tag">Filtering</span>
+            </div>
             <a href="job_board_application.html">View Project</a>
         </div>
     </section>

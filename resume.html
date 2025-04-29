@@ -3,225 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Resume/CV</title>
     <style>
-        /* Global Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
-}
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 30px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-header h1 {
-    margin: 0;
-    font-size: 3em;
-    letter-spacing: 1px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-/* Section Styles */
-.resume-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #24685f;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.certificate-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 127, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Center text and align anchor elements */
-.resume-section h2  {
-    font-size: 2.5em;
-    color: white;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.certificate-section h2 {
-    font-size: 2.5em;
-    color: rgb(24, 92, 64);
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.resume-section p, .certificate-section p {
-    font-size: 1.2em;
-    color: white;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.resume-section, .certificate-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-/* Style for the anchor buttons */
-.resume-section .resume, .certificate-list a {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    background-color: #007bff;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 10px auto;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: auto;  /* Keeps the button compact */
-}
-
-.resume-section .resume:hover, .certificate-list a:hover {
-    background-color: #0056b3;
-    transform: translateY(-5px);  /* Adds a floating effect on hover */
-}
-
-.certificate-list {
-    margin-top: 20px;
-    list-style: none;
-    padding: 0;
-}
-
-.certificate-list a {
-    background-color: #28a745;
-    font-size: 1.1em;
-    color: white;
-    border-radius: 8px;
-    padding: 12px 25px;
-    margin: 10px auto;
-    display: block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: auto;  /* Ensures buttons are not full width */
-}
-
-.certificate-list a:hover {
-    background-color: #218838;
-    transform: translateY(-5px);  /* Adds a floating effect on hover */
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .resume-section, .certificate-section {
-        margin-bottom: 20px;
-        padding: 15px;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    .resume-section h2, .certificate-section h2 {
-        font-size: 2em;
-    }
-
-    .resume-section .resume, .certificate-list a {
-        font-size: 1em;
-        padding: 12px 20px;
-    }
-}
-
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
         
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .toggle-buttons {
+            display: flex;
+            background: #ecf0f1;
+            border-radius: 50px;
+            padding: 5px;
+            position: relative;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .toggle-btn {
+            padding: 12px 30px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #7f8c8d;
+            position: relative;
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 50px;
+        }
+        
+        .toggle-btn.active {
+            color: white;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            width: calc(50% - 10px);
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+        
+        .pdf-container {
+            width: 100%;
+            height: 70vh;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .pdf-container:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .download-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(44, 62, 80, 0.2);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .toggle-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .pdf-container {
+                height: 60vh;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Samuel AKINGENEYE</h1>
-        <p>Full-Stack Web Developer | Cybersecurity Enthusiast | Data Analyst | Environmental Health Scientist</p>
-    </header>
-
     <div class="container">
-        <!-- Tech Skills Resume Section -->
-        <section class="resume-section" id="tech-resume">
-            <h2>Tech Skills Resume</h2>
-            <p>Click below to download my tech resume.</p>
-            <a href="Samuel_AKINGENEYE_Tech_Resume.pdf" class="resume">View</a>
-        </section>
-
-        <!-- Environmental Health Skills Resume Section -->
-        <section class="resume-section" id="health-resume">
-            <h2>Environmental Health Skills Resume</h2>
-            <p>Click below to download my environmental health skills resume.</p>
-            <a href="Samuel_AKINGENEYE_Environmental_Health_Resume.pdf" class="resume">View</a>
-        </section>
-
-        <!-- Web Development Certificates Section -->
-        <section class="certificate-section" id="web-development-certificates">
-            <h2>Web Development Certificates</h2>
-            <div class="certificate-list">
-                <a href="Responsive Web Design.pdf">Certificate 1 - Responsive Web Design</a>
-                <a href="Javascript Algorithm and Data Structures.pdf">Certificate 2 - JavaScript Algorithms and Data Structures</a>
+        <h1>My Resumes</h1>
+        
+        <div class="toggle-container">
+            <div class="toggle-buttons">
+                <button class="toggle-btn active" onclick="showResume('tech')">Tech Resume</button>
+                <button class="toggle-btn" onclick="showResume('env')">Public Health Resume</button>
+                <div class="toggle-slider"></div>
             </div>
-        </section>
-
-        <!-- Cybersecurity Certificates Section -->
-        <section class="certificate-section" id="cybersecurity-certificates">
-            <h2>Cybersecurity Certificates</h2>
-            <div class="certificate-list">
-                <a href="Introduction to cybersecurity.pdf">Certificate 1 - Introduction to cybersecurity</a>
-                <a href="cybersecurity_certificate_2.pdf" target="_blank">Certificate 2 - Ethical Hacking</a>
-            </div>
-        </section>
-
-        <!-- Data Analysis Certificates Section -->
-        <section class="certificate-section" id="data-analysis-certificates">
-            <h2>Data Analysis Certificates</h2>
-            <div class="certificate-list">
-                <a href="data_analysis_certificate_1.pdf" target="_blank">Certificate 1 - Python for Data Analysis</a>
-                <a href="data_analysis_certificate_2.pdf" target="_blank">Certificate 2 - SQL for Data Analysis</a>
-            </div>
-        </section>
-
-        <section class="certificate-section" id="other-certificates">
-            <h2>Other certificates</h2>
-            <div class="certificate-list">
-                <a href="Email marketing.png">Certificate 1 - Email marketing</a>
-                <a href="IoT and digital transformation.pdf">Certificate 2 - Introduction to IoT and digital transformation</a>
-            </div>
-        </section>
-
-        <!-- Environmental Health Certificates Section -->
-        <section class="certificate-section" id="environmental-health-certificates">
-            <h2>Environmental Health Sciences Certificates</h2>
-            <div class="certificate-list">
-                <a href="">Certificate 1 - Environmental Health Fundamentals</a>
-                <a href="W.H.O Certificate.pdf">Certificate 2 - Outbreak investigations in health facilities</a>
-                <a href="env_health_certificate_2.pdf">Certificate 3 - Food Safety and Hygiene</a>
-            </div>
-        </section>
-
+        </div>
+        
+        <div class="pdf-container">
+            <iframe id="pdf-viewer" class="pdf-viewer" src="Samuel_AKINGENEYE_Tech_Resume.pdf" frameborder="0"></iframe>
+        </div>
+        
+        <a id="download-link" class="download-btn" href="Samuel_AKINGENEYE_Tech_Resume.pdf" download>
+            Download Tech Resume
+        </a>
     </div>
 
+    <script>
+        // Simple function to switch between resumes
+        function showResume(type) {
+            // Update active button
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Animate the slider
+            const slider = document.querySelector('.toggle-slider');
+            if (type === 'tech') {
+                slider.style.transform = 'translateX(0)';
+            } else {
+                slider.style.transform = 'translateX(100%)';
+            }
+            
+            // Update PDF viewer and download link
+            const pdfViewer = document.getElementById('pdf-viewer');
+            const downloadLink = document.getElementById('download-link');
+            
+            if (type === 'tech') {
+                pdfViewer.src = 'Samuel_AKINGENEYE_Tech_Resume.pdf';
+                downloadLink.href = 'Samuel_AKINGENEYE_Tech_Resume.pdf';
+                downloadLink.textContent = 'Download Tech Resume';
+            } else {
+                pdfViewer.src = 'Samuel_AKINGENEYE_Environmental_Health_Resume.pdf';
+                downloadLink.href = 'Samuel_AKINGENEYE_Environmental_Health_Resume.pdf';
+                downloadLink.textContent = 'Download Environmental Health Resume';
+            }
+        }
+    </script>
 </body>
 </html>
