@@ -331,6 +331,10 @@ nav ul li a:hover i {
   color: white;
 }
 
+.skills h3 {
+  color:orangered;
+}
+
 .skills-container {
   display: grid;
   background: #101820;
@@ -732,9 +736,8 @@ footer {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  color: var(--white);
+  color: rgb(30, 30, 226);
   font-size: 1.2rem;
   transition: var(--transition);
 }
