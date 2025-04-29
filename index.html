@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My portfolio</title>
+    <title>Fresh Talent</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Inter:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +15,7 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav>
+            <nav class="navbar">
                 <div class="logo">Fresh<span>Talent</span></div>
                 <ul class="nav-links">
                     <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
@@ -31,37 +31,18 @@
                 </div>
             </nav>
         </div>
-    </header>
+    </header><br><br>
 
     <section class="hero" id="home">
         <div class="hero-content">
-          <h1 class="hero-title">Hi, I'm <span>Samuel Akingeneye</span></h1>
-          <p class="hero-subtitle">A passionate technology and health professional delivering innovative solutions across multiple disciplines</p>
-          
-          <div class="roles-container">
-            <div class="role-pill">
-              <i class="fas fa-laptop-code"></i> Full Stack Developer
-            </div>
-            <div class="role-pill">
-              <i class="fas fa-shield-alt"></i> Cybersecurity Enthusiast
-            </div>
-            <div class="role-pill">
-              <i class="fas fa-chart-bar"></i> Data Analyst
-            </div>
-            <div class="role-pill">
-              <i class="fas fa-paint-brush"></i> Web Designer
-            </div>
-            <div class="role-pill">
-                <i class="fas fa-mail-bulk"></i> Email marketing specialist
-              </div>
-            <div class="role-pill">
-              <i class="fas fa-leaf"></i> Environmental Health Practitioner
-            </div>
-          </div>
+            <h1 class="hero-title">
+                <span class="typed-text"></span>
+              </h1>
+              
           
           <div class="hero-btns">
-            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
-            <a href="projects.html" class="btn btn-outline">View My Projects</a>
+            <a href="contact.html" class="cta-button">Get In Touch</a>
+            <a href="projects.html" class="cta-button">View My Projects</a>
           </div>
         </div>
       </section>
@@ -69,73 +50,536 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>Who I am</h2>
-                <p>Get to know the person behind the professional</p>
-            </div>
-            <div class="expertise-icons">
-            
-    
-              
-
-           
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="Avatar.jpeg" alt="Samuel Akingeneye">
-                </div>
-                   
-                            
+                    
                     <div class="skills">
                         <h4>My Skills</h4>
                         <div class="skills-container">
-                            <div class="skill-item" data-skill="ui-ux" style="--target-width: 90%">
-                                <div class="skill-info">
-                                    <span class="skill-name"><i class="fas fa-paint-brush"></i> UI/UX Design</span>
-                                    <span class="skill-percent">90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-item" data-skill="web-dev" style="--target-width: 95%">
-                                <div class="skill-info">
-                                    <span class="skill-name"><i class="fas fa-code"></i> Web Development</span>
-                                    <span class="skill-percent">95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="skill-item" data-skill="cybersecurity" style="--target-width: 85%">
-                                <div class="skill-info">
-                                    <span class="skill-name"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item" data-skill="data analysis" style="--target-width: 85%">
-                                <div class="skill-info">
-                                    <span class="skill-name"><i class="fas fa-chart-line"></i> Data Analysis</span>
-                                    <span class="skill-percent">85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
-                                </div>
-                            </div>
 
-                            <div class="skill-item" data-skill="email-marketing" style="--target-width: 100%">
-                                <div class="skill-info">
-                                    <span class="skill-name"><i class="fas fa-mail-bulk"></i> Email Marketing</span>
-                                    <span class="skill-percent">100%</span>
+                            <div class="skills">
+                                <!-- UI/UX Design Skill -->
+                                 <h3>UI/UX Design Skill</h3><br>
+                            
+                                <!-- Figma Skill -->
+                                <div class="skill-item" data-skill="figma" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-figma"></i> Figma</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
                                 </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress"></div>
+                            
+                                <!-- Wireframing Skill -->
+                                <div class="skill-item" data-skill="wireframing" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-drafting-compass"></i> Wireframing</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Prototyping Skill -->
+                                <div class="skill-item" data-skill="prototyping" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-plug"></i> Prototyping</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Interaction Design Skill -->
+                                <div class="skill-item" data-skill="interaction-design" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-mouse-pointer"></i> Interaction Design</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Adobe XD Skill -->
+                                <div class="skill-item" data-skill="adobe-xd" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-adobe"></i> Adobe XD</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Sketch Skill -->
+                                <div class="skill-item" data-skill="sketch" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-sketch"></i> Sketch</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- User Testing Skill -->
+                                <div class="skill-item" data-skill="user-testing" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-search"></i> User Testing</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
                                 </div>
                             </div>
+                            
+                            
+                            <div class="skills">
+                                <!-- Web Development Skill -->
+                             <h3>Web Development Skill</h3><br>
+                            
+                                <!-- HTML Skill -->
+                                <div class="skill-item" data-skill="html" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-html5"></i> HTML5</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- CSS Skill -->
+                                <div class="skill-item" data-skill="css" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-css3-alt"></i> CSS3</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- JavaScript Skill -->
+                                <div class="skill-item" data-skill="js" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-js-square"></i> JavaScript</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- React Skill -->
+                                <div class="skill-item" data-skill="react" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-react"></i> React</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Node.js Skill -->
+                                <div class="skill-item" data-skill="node" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-node"></i> Node.js</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Git Skill -->
+                                <div class="skill-item" data-skill="git" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-git-square"></i> Git</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- MongoDB Skill -->
+                                <div class="skill-item" data-skill="mongodb" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-database"></i> MongoDB</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- PHP Skill -->
+                                <div class="skill-item" data-skill="php" style="--target-width: 60%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-php"></i> PHP</span>
+                                        <span class="skill-percent">60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- SQL Skill -->
+                                <div class="skill-item" data-skill="sql" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-database"></i> SQL</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="skills">
+                                <!-- Cybersecurity Skill -->
+                               <h3>Cybersecurity Skill</h3>
+                            
+                                <!-- Network Security Skill -->
+                                <div class="skill-item" data-skill="network-security" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-network-wired"></i> Network Security</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Penetration Testing Skill -->
+                                <div class="skill-item" data-skill="pen-testing" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-hammer"></i> Penetration Testing</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Firewalls Skill -->
+                                <div class="skill-item" data-skill="firewalls" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-shield-alt"></i> Firewalls</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Cryptography Skill -->
+                                <div class="skill-item" data-skill="cryptography" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-lock"></i> Cryptography</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Malware Analysis Skill -->
+                                <div class="skill-item" data-skill="malware-analysis" style="--target-width: 65%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-virus"></i> Malware Analysis</span>
+                                        <span class="skill-percent">65%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Ethical Hacking Skill -->
+                                <div class="skill-item" data-skill="ethical-hacking" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-user-shield"></i> Ethical Hacking</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Risk Management Skill -->
+                                <div class="skill-item" data-skill="risk-management" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-chart-line"></i> Risk Management</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Security Auditing Skill -->
+                                <div class="skill-item" data-skill="security-auditing" style="--target-width: 60%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-search"></i> Security Auditing</span>
+                                        <span class="skill-percent">60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="skills">
+                                <!-- Data Analysis Skill -->
+                              <h3>Data Analysis Skill</h3><br>
+                            
+                                <!-- Data Cleaning Skill -->
+                                <div class="skill-item" data-skill="data-cleaning" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-broom"></i> Data Cleaning</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Data Visualization Skill -->
+                                <div class="skill-item" data-skill="data-visualization" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-chart-pie"></i> Data Visualization</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Statistical Analysis Skill -->
+                                <div class="skill-item" data-skill="statistical-analysis" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-calculator"></i> Statistical Analysis</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Data Modeling Skill -->
+                                <div class="skill-item" data-skill="data-modeling" style="--target-width: 70%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-database"></i> Data Modeling</span>
+                                        <span class="skill-percent">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Machine Learning Skill -->
+                                <div class="skill-item" data-skill="machine-learning" style="--target-width: 65%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-robot"></i> Machine Learning</span>
+                                        <span class="skill-percent">65%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Big Data Skill -->
+                                <div class="skill-item" data-skill="big-data" style="--target-width: 60%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-database"></i> Big Data</span>
+                                        <span class="skill-percent">60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- SQL Skill for Data Analysis -->
+                                <div class="skill-item" data-skill="sql" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-database"></i> SQL</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Python Skill for Data Analysis -->
+                                <div class="skill-item" data-skill="python" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fab fa-python"></i> Python</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="skills">
+                                <!-- Email Marketing Skill -->
+                               <h3></h3>
+                            
+                                <!-- Campaign Strategy Skill -->
+                                <div class="skill-item" data-skill="campaign-strategy" style="--target-width: 95%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-bullhorn"></i> Campaign Strategy</span>
+                                        <span class="skill-percent">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Email Automation Skill -->
+                                <div class="skill-item" data-skill="email-automation" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-cogs"></i> Email Automation</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- A/B Testing Skill -->
+                                <div class="skill-item" data-skill="ab-testing" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-adjust"></i> A/B Testing</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Segmentation Skill -->
+                                <div class="skill-item" data-skill="segmentation" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-users"></i> Segmentation</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Copywriting Skill -->
+                                <div class="skill-item" data-skill="copywriting" style="--target-width: 95%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-pencil-alt"></i> Copywriting</span>
+                                        <span class="skill-percent">95%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Analytics Skill -->
+                                <div class="skill-item" data-skill="analytics" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-chart-bar"></i> Analytics</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skills">
+                                <!-- Environmental Health Sciences Skill -->
+                                <div class="skill-item" data-skill="environmental-health-sciences" style="--target-width: 100%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-leaf"></i> Environmental Health Sciences</span>
+                                        <span class="skill-percent">100%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Environmental Policy Skill -->
+                                <div class="skill-item" data-skill="environmental-policy" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-gavel"></i> Environmental Policy</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Public Health Education Skill -->
+                                <div class="skill-item" data-skill="public-health-education" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-school"></i> Public Health Education</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Environmental Risk Assessment Skill -->
+                                <div class="skill-item" data-skill="environmental-risk-assessment" style="--target-width: 80%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-balance-scale"></i> Environmental Risk Assessment</span>
+                                        <span class="skill-percent">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Epidemiology Skill -->
+                                <div class="skill-item" data-skill="epidemiology" style="--target-width: 75%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-user-md"></i> Epidemiology</span>
+                                        <span class="skill-percent">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Sustainability Practices Skill -->
+                                <div class="skill-item" data-skill="sustainability-practices" style="--target-width: 90%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-leaf"></i> Sustainability Practices</span>
+                                        <span class="skill-percent">90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Health and Safety Regulations Skill -->
+                                <div class="skill-item" data-skill="health-safety-regulations" style="--target-width: 85%">
+                                    <div class="skill-info">
+                                        <span class="skill-name"><i class="fas fa-shield-alt"></i> Health and Safety Regulations</span>
+                                        <span class="skill-percent">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress"></div>
+                                    </div>
+                                </div>
+                            </div>
+                                                        
                             
                             <!-- Add more skills following the same pattern -->
                         </div>

@@ -1,160 +1,183 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
     });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    
+    // Animate skill bars on scroll
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    function animateSkills() {
+        skillItems.forEach(item => {
+            const progressBar = item.querySelector('.skill-progress');
+            const targetWidth = item.style.getPropertyValue('--target-width');
+            
+            if (isElementInViewport(item)) {
+                progressBar.style.width = targetWidth;
+            }
+        });
+    }
+    
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+    
+    // Initial check and then on scroll
+    animateSkills();
+    window.addEventListener('scroll', animateSkills);
+    
+    // Portfolio filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            portfolioItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
             });
-        }
+        });
     });
-});
-
-// Portfolio Filter
-const filterButtons = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Update active button
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Filter items
-        const filterValue = button.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset the form
+            contactForm.reset();
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
         });
     });
-});
-
-// Form Submission
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
     
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Here you would typically send the data to a server
-    // For this example, we'll just log it and show an alert
-    console.log({ name, email, subject, message });
-    
-    alert('Thank you for your message, ' + name + '! I will get back to you soon.');
-    contactForm.reset();
-});
-
-// Sticky header on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-});
-// Animate progress bars when they come into view
-document.addEventListener('DOMContentLoaded', function() {
-const skillBars = document.querySelectorAll('.skill-progress');
-
-const animateSkills = () => {
-skillBars.forEach(bar => {
-    const width = bar.style.width;
-    bar.style.width = '0';
-    setTimeout(() => {
-        bar.style.width = width;
-    }, 100);
-});
-};
-
-// Run animation when skills section is in view
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        animateSkills();
-        observer.unobserve(entry.target);
-    }
-});
-}, { threshold: 0.2 });
-
-const skillsSection = document.querySelector('.skills-container');
-if (skillsSection) {
-observer.observe(skillsSection);
-}
-});
-// Add this to your existing JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-// Animate elements on scroll
-const animateOnScroll = function() {
-    const elements = document.querySelectorAll('[data-animate]');
-    elements.forEach(element => {
-        const elementPosition = element.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
+    // Initialize animations when elements come into view
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.service-card, .portfolio-item, .contact-item');
         
-        if (elementPosition < windowHeight - 100) {
-            element.classList.add('animated');
-        }
-    });
-};
-
-window.addEventListener('scroll', animateOnScroll);
-animateOnScroll(); // Run once on load
-
-// Enhanced hover effects for footer links
-const footerLinks = document.querySelectorAll('.footer-links a');
-footerLinks.forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        link.style.transform = 'translateX(5px)';
-    });
-    link.addEventListener('mouseleave', () => {
-        link.style.transform = 'translateX(0)';
-    });
-});
-});
-// Animate skills when they come into view
-document.addEventListener('DOMContentLoaded', function() {
-const skillItems = document.querySelectorAll('.skill-item');
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
+        elements.forEach(element => {
+            if (isElementInViewport(element)) {
+                element.classList.add('animate');
+            }
+        });
+    };
+    
+    // Initial check and then on scroll
+    animateOnScroll();
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Set current year in footer
+    const yearElement = document.querySelector('.footer-bottom');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.querySelector('p').textContent = `© ${currentYear} Samuel Akingeneye. All Rights Reserved.`;
     }
 });
-}, { threshold: 0.2 });
+const typedTextSpan = document.querySelector(".typed-text");
 
-skillItems.forEach(item => {
-observer.observe(item);
-});
-});
+  const textArray = [
+    "Hi there, I'm Samuel AKINGENEYE",
+    "Full stack web developer,",
+    "UI & UX designer,",
+    "Cybersecurity enthusiast,",
+    "Data analyst,",
+    "Email marketing specialist,",
+    "Environmental health practitioner."
+  ];
+
+  const typingDelay = 100; // Delay between typing each character
+  const erasingDelay = 50; // Delay between erasing each character
+  const newTextDelay = 1500; // Delay after typing a line before erasing
+  let textArrayIndex = 0;
+  let charIndex = 0;
+
+  function type() {
+    if (charIndex < textArray[textArrayIndex].length) {
+      typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingDelay);
+    } else {
+      setTimeout(erase, newTextDelay);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, erasingDelay);
+    } else {
+      textArrayIndex++;
+      if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+      setTimeout(type, typingDelay + 500); // Delay before typing the next line
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(type, 1000); // Initial delay before starting
+  });
+  function toggleMenu() {
+    const btn = document.getElementById('menu-btn');
+    btn.textContent = btn.textContent === '✖' ? '☰' : '✖';
+  }
+  
