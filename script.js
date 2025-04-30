@@ -292,32 +292,9 @@ function initScrollAnimation() {
     });
 }
 
-// Open the first category by default
-function openFirstCategory() {
-    const firstCategory = document.querySelector('.skill-category');
-    if (firstCategory) {
-        const firstGrid = firstCategory.querySelector('.skills-grid');
-        const firstToggle = firstCategory.querySelector('.toggle-icon i');
-        
-        firstGrid.classList.remove('hidden');
-        firstToggle.className = 'fas fa-chevron-down';
-        
-        // Animate the circles in the first category
-        const circles = firstGrid.querySelectorAll('.skill-circle-progress');
-        circles.forEach(circle => {
-            const percent = parseInt(circle.getAttribute('data-percent'));
-            const radius = circle.getAttribute('r');
-            const circumference = 2 * Math.PI * radius;
-            const offset = circumference - (percent / 100) * circumference;
-            
-            circle.style.strokeDashoffset = circumference;
-            
-            setTimeout(() => {
-                circle.style.strokeDashoffset = offset;
-            }, 300);
-        });
-    }
-}
+// Removed the openFirstCategory function since we don't want to open any category by default
+// This function is no longer needed
+
 // Animate skill bars on scroll
 document.addEventListener('DOMContentLoaded', () => {
     const bars = document.querySelectorAll('.bar');
@@ -342,4 +319,4 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.skill-bars').querySelectorAll('.bar').forEach(bar => {
       observer.observe(bar);
     });
-  });
+});
