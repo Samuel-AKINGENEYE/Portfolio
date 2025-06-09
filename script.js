@@ -140,9 +140,9 @@ const typedTextSpan = document.querySelector(".typed-text");
     "Full stack web developer,",
     "UI & UX designer,",
     "Cybersecurity enthusiast,",
-    "Data analyst,",
+    "Data Scientist,",
     "Email marketing specialist,",
-    "Environmental health practitioner."
+    "Public health enthusiast."
   ];
 
   const typingDelay = 100; // Delay between typing each character
