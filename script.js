@@ -137,12 +137,9 @@ const typedTextSpan = document.querySelector(".typed-text");
 
   const textArray = [
     "Hi, I'm Samuel AKINGENEYE",
-    "Full stack web developer,",
-    "UI & UX designer,",
-    "Cybersecurity enthusiast,",
-    "Data Scientist,",
-    "Email marketing specialist,",
+    "I'm Full stack web developer,",
     "Public health enthusiast."
+   
   ];
 
   const typingDelay = 100; // Delay between typing each character
