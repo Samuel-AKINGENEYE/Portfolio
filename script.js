@@ -137,7 +137,7 @@ const typedTextSpan = document.querySelector(".typed-text");
 
   const textArray = [
     "Hi, I'm Samuel AKINGENEYE",
-    "I'm Full stack web developer,",
+    "Full Stack Software Engineer,",
     "Public health enthusiast."
    
   ];
